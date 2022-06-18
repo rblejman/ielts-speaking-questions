@@ -1,23 +1,29 @@
 const qSets = [
   {
-    q1: "this is question n1",
-    q2: "this is question n2",
-    q3: "this is question n3",
-    q4: "this is question n4",
+    questions: [
+      " set 1 question 1",
+      " set 1 question 2",
+      " set 1 question 3",
+      " set 1 question 4",
+    ],
     id: 1,
   },
   {
-    q1: "this is set 2 question n1",
-    q2: "this is set 2 question n2",
-    q3: "this is set 2 question n3",
-    q4: "this is set 2 question n4",
+    questions: [
+      " set 2 question 1",
+      " set 2 question 2",
+      " set 2 question 3",
+      " set 2 question 4",
+    ],
     id: 2,
   },
   {
-    q1: "this is set 3 question n1",
-    q2: "this is set 3 question n2",
-    q3: "this is set 3 question n3",
-    q4: "this is set 3 question n4",
+    questions: [
+      " set 3 question 1",
+      " set 3 question 2",
+      " set 3 question 3",
+      " set 3 question 4",
+    ],
     id: 3,
   },
 ];
