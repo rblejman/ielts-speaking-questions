@@ -33,7 +33,19 @@ function addAnswered(id) {
   }
 }
 
-function countdown() {}
+// timer
+const startTiming = 20;
+let time = startTiming * 60;
+const count = document.querySelector(".countDown");
+
+setInterval(updateTimer, 1000);
+function updateTimer() {
+  const minutes = Math.floor(time / 60);
+  let seconds = time % 60;
+  seconds = seconds < 10 ? "0" + seconds : seconds;
+  count.innerHTML = `${minutes}:${seconds}`;
+  time--;
+}
 
 // start program
 startBtn.addEventListener("click", () => {
