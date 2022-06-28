@@ -2,7 +2,7 @@ import qSets from "./questions.js";
 const currentQ = document.querySelector(".qWall__question");
 const startBtn = document.querySelector(".start");
 const nextBtn = document.querySelector(".next");
-const defDelay = [4000, 5000, 6000, 7000];
+const defDelay = [11000, 12000, 13000, 14000];
 const answeredSet = [];
 let next = false;
 
@@ -20,8 +20,11 @@ function showQuestions(questions) {
   questions.forEach(function (item, index) {
     promise = promise.then(function () {
       console.log(item);
+      currentQ.innerHTML = `<h2 class="qWall__question">${item}</h2>`;
+      startTimer(defDelay[index]);
       return new Promise(function (resolve) {
         setTimeout(resolve, defDelay[index]);
+
         console.log(`delay of ${defDelay[index]} miliseconds`);
       });
     });
@@ -30,18 +33,10 @@ function showQuestions(questions) {
 
 promise.then(function () {
   console.log("Loop finished.");
+  currentQ.innerHTML = `
+  <h2 class="qWall__question">Exam completed!</h2>
+  `;
 });
-
-// function showQuestions(questions) {
-//   questions.forEach((item, index) => {
-//     console.log(item);
-//     console.log(index);
-//     console.log(defDelay[index]);
-//     currentQ.innerHTML = `
-//           <h2 class="qWall__question">${q}</h2>`;
-//     // countdown pasarle el index de la pregunta
-//   });
-// }
 
 // Saving answeredSet question Sets
 function addAnswered(id) {
@@ -51,17 +46,17 @@ function addAnswered(id) {
 }
 
 // timer
-const startTiming = 20;
-let time = startTiming * 60;
 const count = document.querySelector(".countDown");
 
-setInterval(updateTimer, 1000);
-function updateTimer() {
-  const minutes = Math.floor(time / 60);
-  let seconds = time % 60;
-  seconds = seconds < 10 ? "0" + seconds : seconds;
-  count.innerHTML = `${minutes}:${seconds}`;
-  time--;
+function startTimer(time) {
+  time = time / 1000;
+  setInterval(() => {
+    const minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+    count.innerHTML = `${minutes}:${seconds}`;
+    time--;
+  }, 1000);
 }
 
 // start program
